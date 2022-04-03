@@ -12,14 +12,34 @@
         </ul>
     </div>
     <div class="col">
-        <h3>Agregar</h3>
+        <h3>Agregar <small>{{nuevo.nombre}}</small></h3>
         <hr>
+        <!-- 
+            ( ) es para emitir/escuchar eventos
+            [ ] es para agregar/enlazar/establecer un valor a una propiedad
+            [( )] escuchar y emitir ese evento, y lo que se produzca se asignara en tiempo real a la propiedad que definamos
+        -->
+        <form (ngSubmit)="agregar()"><!--ngSubmit ejecuta la llamada a la funcion,evita el refresh del navegador al producirse el evento submit-->
+            <input 
+            type="text" 
+            placeholder="Nombre"
+            name="nombre"
+            [(ngModel)]="nuevo.nombre"
+            >
+            <!-- hacer lo sig es como utilizar [(ngModel)]:
+                [value]="nuevo.nombre"
+                (input)="cambiarNombre( $event )"
+             -->
+            <input 
+            type="text" 
+            placeholder="Poder"
+            name="poder"
+            [(ngModel)]="nuevo.poder"
+            >
 
-        <form action="#">
-            <input type="text" placeholder="Nombre">
-            <input type="text" placeholder="Poder">
-
-            <button>Agregar</button>
+            <button type="submit">
+                Agregar
+            </button>
         </form>
 
     </div>
