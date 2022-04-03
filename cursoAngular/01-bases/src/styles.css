@@ -38,3 +38,17 @@
   .p-1 {
     padding: 1px;
   }
+/* estilos para la tabla en modulo dbz*/
+  .row {
+    display: flex;
+  }
+
+  .col {
+    flex-grow: 1;
+    margin-right: 10px;
+  }
+
+  input {
+    display: block;
+    margin: 5px;
+  }
