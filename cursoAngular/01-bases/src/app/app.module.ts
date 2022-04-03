@@ -2,20 +2,22 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { ContadorComponent } from './contador/contador.component';
-import { HeroeComponent } from './heroes/heroe/heroe.component';
-import { ListadoComponent } from './heroes/listado/listado.component';
 
+
+// import { HeroeComponent } from './heroes/heroe/heroe.component';los borramos para utilizar nuestro modulo de heroes que creamos
+// import { ListadoComponent } from './heroes/listado/listado.component';los borramos para utilizar nuestro modulo de heroes que creamos
+import { HeroesModule } from './heroes/heroes.module';
+import { ContadorModule } from './contador/contador.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContadorComponent,
-    HeroeComponent,
-    ListadoComponent
+
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HeroesModule, // modulo que creamos para trabajar en modulos , (es bueno si nuestra app va a crecer mucho a futuro, entonces es bueno trabajar con modulos)
+    ContadorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
