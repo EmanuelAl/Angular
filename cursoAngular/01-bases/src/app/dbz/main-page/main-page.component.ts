@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-
-interface Personaje {
-  nombre: string;
-  poder: number;
-}
+import { Component } from '@angular/core';
+import { Personaje } from '../interfaces/dbz.interface';
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html'
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent {
 
   personajes: Personaje[] = [
     {
@@ -26,12 +22,6 @@ export class MainPageComponent implements OnInit {
     nombre: '',
     poder: 0
   }
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 
   agregar() {
     //validacion si esta vacio la propieda nombre
