@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Personaje } from '../interfaces/dbz.interface';
-
+//componente padre del componente hijo personajes
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html'
@@ -19,22 +19,7 @@ export class MainPageComponent {
   ];
 
   nuevo: Personaje = {
-    nombre: '',
-    poder: 0
+    nombre: 'Maestro Roshi',
+    poder: 1000
   }
-
-  agregar() {
-    //validacion si esta vacio la propieda nombre
-    if (this.nuevo.nombre.trim().length === 0) { return; }// si no tiene nada 'nombre', pues que salimos del metodo con return
-
-    this.personajes.push(this.nuevo);//agregamos a la lista
-    //purgamos el objeto
-    this.nuevo = {
-      nombre: '',
-      poder: 0
-    }
-    console.log(this.nuevo);
-  }
-
-  
 }

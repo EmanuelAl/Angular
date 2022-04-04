@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-
+//componente hijo de main-page
 @Component({
   selector: 'app-personajes',
   templateUrl: './personajes.component.html',
