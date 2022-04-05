@@ -20,8 +20,10 @@ export class DbzService {
         return [...this._personajes];
     }
 
-    constructor() {
-        console.log('Servicio inicializado');
+    constructor() {}
+
+    agregarPersonaje(personaje: Personaje) {
+        this._personajes.push( personaje );
     }
 
 }//se debe declarar en dbz.module.ts
