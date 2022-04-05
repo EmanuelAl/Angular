@@ -19,7 +19,7 @@ export class AgregarComponent {
     //validacion si esta vacio la propieda nombre
     if (this.nuevo.nombre.trim().length === 0) { return; }// si no tiene nada 'nombre', pues que salimos del metodo con return
 
-    console.log(this.nuevo);
+    // console.log(this.nuevo);
     this.onNuevoPersonaje.emit(this.nuevo);//emitimos el personaje cuando este evento sea llamado
     //purgamos el objeto
     this.nuevo = {
