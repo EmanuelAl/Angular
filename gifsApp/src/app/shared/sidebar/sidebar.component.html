@@ -8,7 +8,7 @@
       <div *ngFor="let item of historial">
             <a href="#"
             class="list-group-item  list-group-item-action">
-            {{item}}
+            {{ item | titlecase }}<!-- uso de pipe-->
             </a>
 
       </div>

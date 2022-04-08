@@ -26,6 +26,10 @@ export class BusquedaComponent{
   buscar() {
 
     const valor = this.txtBuscar?.nativeElement.value;
+    //se valida input vacio
+    if(valor.trim().length == 0) {//si el input esta vacio devuelve return , o sea no hace nada
+      return;
+    }
 
     this._gifsService.buscarGifs(valor);
 
