@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { GifsService } from '../services/gifs.service';
 
 @Component({
   selector: 'app-busqueda',
@@ -8,20 +9,25 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 })
 export class BusquedaComponent{
 
+  
 //   {static: true/false} , es true si la vista(html) no depende de ningun condicional
 //   es false si depende la vista(html) de alguna condicional*/
 // @ViewChild('textos',{static: true}) textos: ElementRef | any//para utilizar la seleccion de la vista
 
-
-
   //     input referencia nombre prop 
   @ViewChild('txtBuscar', {static: true}) txtBuscar?: ElementRef<HTMLInputElement> | any;
+
+  constructor(private _gifsService: GifsService) {
+
+  }
+
+
 
   buscar() {
 
     const valor = this.txtBuscar?.nativeElement.value;
 
-    console.log(valor);
+    this._gifsService.buscarGifs(valor);
 
     this.txtBuscar.nativeElement.value = '';
   }
