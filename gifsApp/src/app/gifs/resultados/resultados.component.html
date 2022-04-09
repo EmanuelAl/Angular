@@ -1,1 +1,42 @@
-<p>resultados works!</p>
+
+<!-- <ul>
+    <li *ngFor="let gif of resultados">
+        {{ gif.title }}
+    </li>
+</ul> -->
+
+<div class="row">
+    
+    <div *ngFor="let gif of resultados"
+    class="col-md-4 col-sm-6">
+
+        <div class="card">
+            <!-- le ponemos corchetes al src para que angular se encargue de establecer el valor pasado-->
+            <img [src]="gif.images.downsized_medium.url" 
+            alt="gif.title"
+            class="card-img-top"
+            >
+            <div class="card-body">
+                <p class="card-text">
+                    {{ gif.title }}
+                    <!-- {{ gif.images.downsized_medium.url }} -->
+                    <!-- <img src="{{ gif.images.downsized_medium.url }}" alt=""> -->
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--
+bootstrap:
+
+clases que dan estilos:
+row fila
+col columna
+
+col-md-4 formato para pantallas medianas 
+col-sm-6 formato para pantallas de celular, pantallas pequeñas
+card estilos para una card
+card-img-top le da estilos de tamaño a la imagen
+
+-->

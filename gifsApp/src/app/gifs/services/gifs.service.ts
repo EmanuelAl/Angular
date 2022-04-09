@@ -1,15 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root' 
 })
 export class GifsService {
+  private apiKey : string = 'CZok0VkIP2YDNnuQAIZgPiW1si98QVEQ';
   private _historial: string[] = [];
+  // toDO  cambiar any por su tipo
+  public resultados: any[] = [];
 
+  constructor(private http: HttpClient) {}
 
   get historial() {
-   
-
     return [...this._historial];//romper la referencia, para evitar que 
     //si alguien hace algun cambio en esta funcion impacte en la prop _historial directamente
     //y no queremos eso, entonces lo ponemos asi al codigo
@@ -31,7 +34,12 @@ export class GifsService {
 
     }
 
-    console.log(this._historial);
+    this.http.get(`https://api.giphy.com/v1/gifs/search?api_key=CZok0VkIP2YDNnuQAIZgPiW1si98QVEQ&q= ${ query } &limit=10`)
+             .subscribe( (resp: any) => {
+                console.log(resp.data);
+                this.resultados = resp.data;
+             });
+    
   }
 
 
