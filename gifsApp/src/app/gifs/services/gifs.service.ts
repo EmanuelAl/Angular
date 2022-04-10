@@ -8,10 +8,12 @@ import { SearchGifsResponse, Gif } from '../interface/gifs.interface';
 export class GifsService {
   private apiKey : string = 'CZok0VkIP2YDNnuQAIZgPiW1si98QVEQ';
   private _historial: string[] = [];
-  public resultados: Gif[] = [];
+  public resultados: Gif[] = [];//declarada publica para que el componente resultados tenga acceso
 
 
   constructor(private http: HttpClient) {
+    //para que el ultimo resultado aparezca al recargar la app
+    this.resultados = JSON.parse( localStorage.getItem('resultados')!) || [];
 
     this._historial = JSON.parse( localStorage.getItem('historial')!) || [];//si el getItem devuelve null, entonces se asignara un array vacio
 
@@ -50,8 +52,9 @@ export class GifsService {
              .subscribe( (resp ) => {
                 console.log(resp.data);
                 this.resultados = resp.data;
+                localStorage.setItem('resultados', JSON.stringify(this.resultados));
              });
-    
+            
   }
 
 
