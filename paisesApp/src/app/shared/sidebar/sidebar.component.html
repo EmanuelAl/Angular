@@ -15,3 +15,12 @@
         routerLink="capital" 
         routerLinkActive="active">Por capital</li>
       </ul>
+<!-- 
+  routerLink=""  define la ruta que se cargara 
+  routerLinkActive="active"  esto es para que la seleccion resalte de algun color, para saber donde estamos ubicados en que ruta nos encontramos
+  [routerLinkActiveOptions]="{ exact: true }" se usa para evitar que el active definido no quede aplicado por defecto en la ruta vacia que se carga por defecto
+                                             cuando seleccionamos otra opcion del menu , el active de la opcion "por pais" que antes quedaba fijado con el active
+                                             ahora al seleccionar otra opcion, el active desaparece
+                                             y solo se aplica en la opcion elegida
+
+-->
