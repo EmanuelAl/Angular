@@ -1,1 +1,38 @@
-<p>por-capital works!</p>
+<h2>Por capital</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <app-pais-input
+         (onEnter)="buscar($event)"
+         placeholder="Buscar capital...">
+        </app-pais-input>
+    </div>
+</div>
+
+<hr>
+
+<div class="alert alert-danger" *ngIf="hayError">
+    No se encontró nada con el término {{ termino }} 
+</div>
+
+<div  *ngIf="paises.length > 0" class="row">
+    <div class="col">
+
+        <app-pais-tabla [paises]="paises"></app-pais-tabla>
+    </div>
+</div>
+<!-- 
+Bootstrap :
+class="row"
+class="col"
+class="form-control"
+v
+class="table table-hover"
+********************
+<form autocomplete="off"> para que no nos autocomplete en nuestro input
+(ngSubmit)="buscar()"  cuando el usuario aplique enter para 
+enviar lo que lleno en el imput del formulario, el evento llama a la funcion buscar()
+
+
+-->
