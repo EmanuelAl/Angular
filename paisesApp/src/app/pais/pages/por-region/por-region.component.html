@@ -7,12 +7,9 @@
     <div class="col">
         <button *ngFor="let region of regiones"
                 class="btn btn-outline-primary"
-                [ngClass]="{ 
-                    'btn-primary': regionActiva === region,
-                    'btn-outline-primary': regionActiva !== region
-                }"
+                [class]="getClaseCSS( region )"
                 (click)="activarRegion( region )">
-            {{region}}
+            {{region | titlecase}}
         </button>
     </div>
 </div>
@@ -23,11 +20,23 @@
     si la condicion es true se aplica la clase al elemento donde se la incorporo
     [class.btn-primary]="region === regionActiva"
 
-    o se puede usar un ngclass
+************ o se puede usar un ngclass
     [ngClass]="{     
                      'nombreClase' : condicion,
                     'btn-primary': regionActiva === region,
                     'btn-outline-primary': regionActiva !== region
                 }"
+**********otra forma de agregar clases condicionales es :
 
+    [class]="( region === regionActiva) ? 'btn btn-primary': 'btn btn-outline-primary'"
+
+************4to metodo de agregar clases css condicionales es
+, crear un metodo para fines didacticos y de legibilidad :
+
+    [class]="getClaseCSS( region )"
+
+    en el componente: 
+    getClaseCSS( region: string): string {
+    return ( region === this.regionActiva) ? 'btn btn-primary': 'btn btn-outline-primary';
+  }
 -->
