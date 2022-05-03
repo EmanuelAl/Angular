@@ -13,6 +13,12 @@
         </button>
     </div>
 </div>
+<div  *ngIf="paises.length > 0" class="row">
+    <div class="col">
+
+        <app-pais-tabla [paises]="paises"></app-pais-tabla>
+    </div>
+</div>
 
 <!-- 
     esto tambien se puede agregar al boton para que haga una especie de hover al seleccionar y 

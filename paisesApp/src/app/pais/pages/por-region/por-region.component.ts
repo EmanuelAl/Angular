@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Country } from '../../interfaces/pais.interface';
+import { PaisService } from '../../services/pais.service';
 
 @Component({
   selector: 'app-por-region',
@@ -12,9 +14,13 @@ import { Component } from '@angular/core';
 })
 export class PorRegionComponent  {
 
-  regiones: string[] = ['africa','américa', 'asia', 'europa', 'oceanía'];
+  regiones: string[] = ['EU','EFTA','CARICOM','PA','AU','USAN','EEU','AL','ASEAN','CAIS','CEFTA','NAFTA','SAARC'];
   regionActiva: string = '';
-  constructor() { }
+  paises: Country[] = [];
+
+  constructor(private paisService: PaisService) 
+  { }
+
 
   getClaseCSS( region: string): string {
     return ( region === this.regionActiva) 
@@ -23,9 +29,21 @@ export class PorRegionComponent  {
   }
 
   activarRegion( region: string){
-    this.regionActiva = region;
 
+    if(this.regionActiva == region){return;}// si la region elegida es la misma que ya se eligio ,pues que no haga nada(return;)
+
+    this.regionActiva = region;
+    this.paises= [];
     //TODO hacer el llamado al servicio
+    this.paisService.buscarRegion(region).subscribe(
+      (paises)=> {
+        console.log(paises);
+        this.paises = paises;
+      },
+      (err)=> {
+        console.log(err);
+      }
+    );
   }
 
 }
