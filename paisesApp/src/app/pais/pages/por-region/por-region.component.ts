@@ -37,7 +37,7 @@ export class PorRegionComponent  {
     //TODO hacer el llamado al servicio
     this.paisService.buscarRegion(region).subscribe(
       (paises)=> {
-        console.log(paises);
+        // console.log(paises);
         this.paises = paises;
       },
       (err)=> {
